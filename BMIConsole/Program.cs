@@ -37,7 +37,7 @@ namespace BMIConsole
             if (bmi < 18)
             {
                 Console.WriteLine("太瘦");
-            }
+            }//ssss
             else
             {
                 if (bmi > 22)
