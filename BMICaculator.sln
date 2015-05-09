@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMIConsole", "BMIConsole\BMIConsole.csproj", "{0231ACE1-40F2-49FF-AE83-CE9437DCC17B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMIService", "BMIService\BMIService.csproj", "{22283425-544B-4CED-B28F-73A84907E45F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMIAPI", "BMIAPI\BMIAPI.csproj", "{4A1F4561-E5EA-4080-AAAA-BD24716190C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0231ACE1-40F2-49FF-AE83-CE9437DCC17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0231ACE1-40F2-49FF-AE83-CE9437DCC17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0231ACE1-40F2-49FF-AE83-CE9437DCC17B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22283425-544B-4CED-B28F-73A84907E45F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22283425-544B-4CED-B28F-73A84907E45F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22283425-544B-4CED-B28F-73A84907E45F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22283425-544B-4CED-B28F-73A84907E45F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1F4561-E5EA-4080-AAAA-BD24716190C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1F4561-E5EA-4080-AAAA-BD24716190C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1F4561-E5EA-4080-AAAA-BD24716190C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1F4561-E5EA-4080-AAAA-BD24716190C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
