@@ -1,24 +1,105 @@
 ﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>BMI 計算器</h1>
+    <p class="lead">NET Sister first sample code</p>
+    
 </div>
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+    <div class="col-md-7">
+        <form role="form">
+            <div class="form-group">
+                <label for="exampleInputEmail1">身高</label>
+                <input type="text" class="form-control" id="textHeight" placeholder="請輸入身高">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">體重</label>
+                <input type="text" class="form-control" id="textWeight" placeholder="請輸入體重">
+            </div>
+            <div class="form-group">
+                <button type="button" id="cmdCalcF" class="btn btn-default">計算女生</button>
+                <button type="button" id="cmdCalcM" class="btn btn-default">計算男生</button>
+            </div>
+        </form>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+    <div class="col-md-5">
+        <i id="faceIcon" class="" style="font-size:240pt"></i>
+
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-</div>
+@section scripts{
+<script type="text/javascript">
+    $(function () {
+        $("#cmdCalcF").click(function (e) {
+            e.preventDefault();
+            var height = $("#textHeight").val();
+            var weight = $("#textWeight").val();
+            if (height == "") {
+                alert("請輸入身高");
+                return;
+            }
+            if (weight == "") {
+                alert("請輸入體重");
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/api/bmi/Women",
+                data: "height=" + height + "&weight=" + weight,
+                dataType: "json",
+                success: function (response) {
+                    $("#faceIcon")
+                        .removeClass("fa fa-meh-o")
+                        .removeClass("fa fa-smile-o")
+                        .removeClass("fa fa-frown-o");
+
+                    if (response == "太瘦") {
+                        $("#faceIcon").addClass("fa fa-meh-o");
+                    }
+                    else if (response == "剛剛好") {
+                        $("#faceIcon").addClass("fa fa-smile-o");
+                    }
+                    else {
+                        $("#faceIcon").addClass("fa fa-frown-o");
+                    }
+                }
+            });
+            
+        });
+
+        $("#cmdCalcM").click(function (e) {
+                e.preventDefault();
+                var height = $("#textHeight").val();
+                var weight = $("#textWeight").val();
+                if (height == "") {
+                    alert("請輸入身高");
+                    return;
+                }
+                if (weight == "") {
+                    alert("請輸入體重");
+                    return;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/api/bmi/Man",
+                    data: "height=" + height + "&weight=" + weight,
+                    dataType: "json",
+                    success: function (response) {
+                        $("#faceIcon")
+                        .removeClass("fa fa-meh-o")
+                        .removeClass("fa fa-smile-o")
+                        .removeClass("fa fa-frown-o");
+
+                        if (response == "太瘦") {
+                            $("#faceIcon").addClass("fa fa-meh-o");
+                        }
+                        else if (response == "剛剛好") {
+                            $("#faceIcon").addClass("fa fa-smile-o");
+                        }
+                        else {
+                            $("#faceIcon").addClass("fa fa-frown-o");
+                        }
+                    }
+                });
+        });
+    });
+    
+</script>
+}

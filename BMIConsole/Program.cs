@@ -36,12 +36,8 @@ namespace BMIConsole
 
             Console.WriteLine("請問你的性別?");
             string inputSex = Console.ReadLine();
-            bool isMale = false;
-            if (inputSex == "M")
-            {
-                isMale = true;
-            }
-            //double he
+            bool isMale = (inputSex == "M");
+
             double bmi = weight / (height * height);
             Console.WriteLine("結果是："+bmi);
             if (bmi < 18)
